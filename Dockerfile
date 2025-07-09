@@ -1,8 +1,8 @@
-FROM frolvlad/alpine-glibc
+FROM alpine:latest
 
 WORKDIR /www/allinssl/
 
-RUN apk add --no-cache curl tzdata\
+RUN apk add --no-cache curl tzdata openssl\
     && curl https://node1.allinssl.com/bin/allinssl-$(uname -s)-$(uname -m).tar.gz | tar -xz -C /www/allinssl/ \
     && apk del curl
 ENV TZ=Asia/Shanghai
