@@ -2,7 +2,7 @@ FROM alpine:latest
 
 WORKDIR /www/allinssl/
 
-RUN apk add --no-cache curl tzdata openssl\
+RUN apk add --no-cache curl tzdata openssl bash\
     && curl https://node1.allinssl.com/bin/allinssl-$(uname -s)-$(uname -m).tar.gz | tar -xz -C /www/allinssl/ \
     && apk del curl
 ENV TZ=Asia/Shanghai
